@@ -1,0 +1,1 @@
+.grid-container{display:grid;justify-content:center;margin-top:20px}.grid-row{margin-bottom:10px}.grid-row:last-child{margin-bottom:0}.grid-row:after{clear:both;content:"";display:block}.grid-cell{background:#8687ad;border-radius:3px;float:left;height:150px;margin-right:10px;width:150px}.grid-cell:last-child{margin-right:0}img{padding:15px}
