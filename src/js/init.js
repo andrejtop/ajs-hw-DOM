@@ -1,11 +1,11 @@
+import goblinImage from "../img/goblin.png";
+
 export default class Character {
-  constructor(elem) {
-    this.cell = elem.querySelectorAll(".grid-cell");
-    this.icon = elem.querySelector(".icon");
-  }
+  constructor() {}
 
   init() {
-    const container = document.querySelector(".grid-container");
+    const container = document.createElement("div");
+    container.className = "grid-container";
 
     for (let i = 0; i < 4; i++) {
       const row = document.createElement("div");
@@ -17,18 +17,34 @@ export default class Character {
       }
       container.appendChild(row);
     }
+    document.body.appendChild(container);
+
+    this.generateImage();
   }
+
+  generateImage() {
+    const container = document.getElementsByClassName("grid-container")[0];
+    const cells = container.querySelectorAll(".grid-cell");
+    const image = document.createElement("img");
+    image.src = goblinImage;
+    cells[0].appendChild(image);
+  }
+
   getRandomPosition() {
     let previous = 0;
-    let i = 0;
 
     setInterval(() => {
+      let i = Math.floor(Math.random() * 16);
+
       while (i === previous) {
-        i = Math.floor(Math.random() * (this.cell.length - 1));
+        i = Math.floor(Math.random() * 16);
       }
 
       previous = i;
-      this.cell[i].appendChild(this.icon);
+      const container = document.getElementsByClassName("grid-container")[0];
+      const cells = container.querySelectorAll(".grid-cell");
+      const image = container.querySelector("img");
+      cells[i].appendChild(image);
     }, 1000);
   }
 }

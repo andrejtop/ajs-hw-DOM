@@ -1,5 +1,5 @@
 import Character from "./init";
 
-const Game = new Character(document.querySelector(".grid-container"));
+const Game = new Character();
 Game.init();
 Game.getRandomPosition();
